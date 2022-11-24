@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <meta name="description" content="Opis zawartości strony dla wyszukiwarek" />
+    <meta name="keywords" content="słowa, kluczowe, opisujące, zawartość" />
+    <meta name="author" content="Mateusz Mróz" />
+
+    <title>Solo Leveling</title>
+
+    <link rel="shortcut icon" href="assets/img/Ikon.png" type="image/x-icon" />
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="assets/css/manhwaStyle.css" />
+</head>
+
+<body>
+    <header class="header">
+        <div class="nav__logo">
+            <a href="https://mattymroz.github.io/SoloLeveling/" target="_blank">
+                <span class="blast">S</span><span class="blast">o</span><span class="blast">l</span><span
+                    class="blast">o</span>
+                <span class="blast">L</span><span class="blast">e</span><span class="blast">v</span><span
+                    class="blast">e</span><span class="blast">l</span><span class="blast">i</span><span
+                    class="blast">n</span><span class="blast">g</span>
+            </a>
+        </div>
+
+        <div class="nav__button">
+            <div class="button__area">
+                <div class="button__wrapper">
+                    <a class="button" href="./MANHWA START.html">
+                        <i class="ri-arrow-right-s-line"></i>
+                        Rozdziały
+                        <i class="ri-arrow-left-s-line"></i>
+                    </a>
+                    <div class="button__bg"></div>
+                </div>
+            </div>
+        </div>
+        <div class="num">
+            <h1>111</h1>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="manhwa">
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="nav__button">
+            <div class="button__area">
+                <div class="button__wrapper">
+                    <a class="button" href="./MANHWA START.html">
+                        <i class=" ri-arrow-right-s-line"></i>
+                        Rozdziały
+                        <i class="ri-arrow-left-s-line"></i>
+                    </a>
+                    <div class="button__bg"></div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+<script>
+    function blast() {
+        const blast = document.querySelectorAll('.blast');
+        blast.forEach((blast) => {
+            blast.addEventListener('mouseenter', () => {
+                blast.classList.add('active__blast');
+                blast.addEventListener('animationend', () => {
+                    blast.classList.remove('active__blast');
+                });
+            });
+        });
+    }
+
+    function generateImages() {
+        let images = document.querySelector('.manhwa');
+        let i = 1;
+        while (i <= 100) {
+            let img = document.createElement('img');
+            img.src = `../R111/${i}.png`;
+            img.alt = `Solo Leveling`;
+            images.appendChild(img);
+            i++;
+        }
+    }
+
+    function displayNone() {
+        let images = document.querySelectorAll('.manhwa img');
+        images.forEach((image) => {
+            image.addEventListener('load', () => {
+                image.style.display = 'block';
+            });
+            image.addEventListener('error', () => {
+                image.style.display = 'none';
+            });
+        });
+    }
+
+    blast();
+    generateImages();
+    displayNone();
+</script>
+
+</html>
